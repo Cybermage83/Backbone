@@ -1,0 +1,6 @@
+#text{margin-bottom: 20px;}
+#commentIt > textarea {width: 300px; height: 70px;}
+#commentIt > input{clear: both;}
+
+.comment{border: 1px solid #808080;}
+.comment a{float: right; margin-right: 40px;}
