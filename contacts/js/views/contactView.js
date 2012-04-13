@@ -12,10 +12,12 @@
                 className:'contact-container',
                 template: _.template(temp),
                 render: function(){
+                    //console.log('this?',this);
                     this.$el.html(this.template(this.model.toJSON()));
+                   // console.log('this>>',this);
                     return this;
                 }
             });
-        console.log('ContactView',ContactView.prototype,ContactView.$el);
+        console.log('ContactView',ContactView.prototype,'other');
         return ContactView;
     });

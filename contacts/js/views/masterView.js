@@ -5,7 +5,7 @@
  * Time: 12:38 PM
  * To change this template use File | Settings | File Templates.
  */
-define(['views/contactView'],function(contactView){
+define(['Collection/Contacts','views/contactView'],function(CollectionList,contactView){
    var BV = Backbone.View,
        masterView = BV.extend({
            el:$('#contacts'),
@@ -23,9 +23,9 @@ define(['views/contactView'],function(contactView){
            },
            renderContact:function(item){
                var ctcView = new contactView({model:item});
-               console.log('ctcView',ctcView,ctcView.$el);
+              // console.log('ctcView',ctcView,ctcView.$el);
                this.$el.append(ctcView.render().el);
-               console.log('ctcView1',ctcView.render());
+             //  console.log('ctcView1',ctcView.$el,ctcView.el);
            }
        });
        console.log('masterView',masterView.prototype,'contactView',contactView.prototype);
@@ -33,3 +33,5 @@ define(['views/contactView'],function(contactView){
        return masterView;
 
 });
+
+
