@@ -2,7 +2,7 @@ define(['views/masterView','loadHTML/loadCommentPoast'],function(master,loadComm
 $(document).ready(function(){
     var load = new master();
        new loadCommentPostHTML;
-       console.log('load',load);
+       console.log('loadit1111',load);
 });
 
 
