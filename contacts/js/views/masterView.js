@@ -11,7 +11,7 @@ define(['Collection/Contacts','views/contactView'],function(CollectionList,conta
            el:$('#contacts'),
            initialize: function(){
                this.collection = new CollectionList(contacts);
-               console.log('this.collection',this.collection);
+               console.log('this`.collection',this.collection);
                this.render();
                console.log('this.render',this.render);
            },
@@ -22,6 +22,7 @@ define(['Collection/Contacts','views/contactView'],function(CollectionList,conta
                },this);
            },
            renderContact:function(item){
+               console.log('what is item',item);
                var ctcView = new contactView({model:item});
               // console.log('ctcView',ctcView,ctcView.$el);
                this.$el.append(ctcView.render().el);

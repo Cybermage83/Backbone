@@ -2,9 +2,9 @@ define(function(){
     var BM = Backbone.Model,
         User = BM.extend({
             defaults:{
+                avatar: 'img/registered.jpeg',
                 userId: 0,
                 userName:'default',
-                avatar: 'img/registered.jpeg',
                 post:'Please Enter your comment here..',
                 replyList:{
                     usename:'default',
@@ -14,7 +14,7 @@ define(function(){
                 }
             },
             validate:function(attr){
-                var cleanUser = /\w/gi;
+                var cleanUser = /\W/gi;
                 console.log('does validate run',attr);
                 if(attr.userName.search(cleanUser) > -1 ){
 

@@ -5,28 +5,38 @@
  * Time: 4:38 PM
  * To change this template use File | Settings | File Templates.
  */
-define(['Collection/Users'],function(User){console.log('postView11');
+define(['text!template/generalComment.html'],function(postTemp){console.log('postView1');
+
     var BV = Backbone.View,
         postView = BV.extend({
-            el: $(".submitPost"),
+
+            tagName:'li',
             events:{
-                'focus input': 'gatherPost',
-                'focus textarea': 'gatherPost',
-                'click button': 'gatherPost'
+                'click .action a:last-child ': 'deleteme'
             },
+            template:_.template(postTemp),
             initialize:function(){
-              this.render();
+                console.log('this',this);
+
+                this.render();
+                console.log('this model!!',this.model[0]);
+                var len = this.model.length, post = this.model[len-1];
+                console.log('this is a model?', this.model[len-1],post.attributes);
+                this.$el.prepend(this.template(post.attributes));
             },
             render:function(){
-                this.$el = $('.submitPost');
-                console.log('WHAT EL',this.el,this.$el);
-              return this;
+                console.log('this model',this.model);
+                //this.$el.prepend(_.template(this.model.attributes.toJSON()));
+                return this;
             },
+            deleteme: function(e){
+                console.log('What is model',this,this.model);
+                var comment = $(e.target).parentsUntil('li').parent();
+                console.log('etarget', e.target,'PARENT',comment);
+                console.log('ID',comment.attr('id'));
 
-            gatherPost:function(e){
-                console.log('Submit Clicked',e.target);
-                var username = this.$el.find('inputt').val();
-                new User({userName:username});
+                comment.remove();
+                console.log('clicked!');
             }
         });
     return postView;
