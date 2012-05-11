@@ -1,4 +1,4 @@
-define(['views/masterView','loadHTML/loadCommentPoast'],function(master,loadComment){
+define(['views/masterView','loadHTML/loadCommentPoast','external/bars'],function(master,loadComment){
 //$(document).ready(function(){
     var load = new master();
     var loadPosting = new loadComment;
